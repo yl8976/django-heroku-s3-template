@@ -21,7 +21,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from bchouse import views
+from myapp import views
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),

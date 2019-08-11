@@ -29,13 +29,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', os.getenv('SECRET_KEY'))
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', os.getenv('DEBUG')) != 'False'
 
-ALLOWED_HOSTS = ['bchouse-ca.herokuapp.com', '127.0.0.1', 'localhost']
+# Change the first host to your own Heroku URL (or any other custom URL)
+ALLOWED_HOSTS = ['myproject.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'bchouse.apps.BchouseConfig',
+    'myapp.apps.MyappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'bchouseproject.urls'
+ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bchouseproject.wsgi.application'
+WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 # Database
@@ -83,8 +84,8 @@ WSGI_APPLICATION = 'bchouseproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bchouse_db',
-        'USER': 'bchouseuser',
+        'NAME': 'myapp_db',
+        'USER': 'myappuser',
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
@@ -144,11 +145,11 @@ DATABASES['default'].update(db_from_env)
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# AWS S3 configuration for static files in production
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'bchouseproject/static'),
+    os.path.join(BASE_DIR, 'myproject/static'),
 ]
 
+# AWS S3 configuration for production
 if not DEBUG:
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', os.getenv('AWS_ACCESS_KEY_ID'))
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', os.getenv('AWS_SECRET_ACCESS_KEY'))
