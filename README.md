@@ -14,6 +14,12 @@ AWS S3 is necessary for handling user uploads and adding static files because He
 
 ### Clone the Template
 
+#### Option 1: Using GitHub's Templating Feature
+
+Press the "Use this template" button at the top of this repository. Follow the steps to name and create your own copy of this repo!
+
+#### Option 2: Manually Clone
+
 First, navigate to the folder you want your project to live on your command line interface (`cmd.exe` on Windows, `Terminal` on macOS). Then, type:
 
 ```bash
