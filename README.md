@@ -1,6 +1,8 @@
 # Django Heroku S3 Template
 
-Template for websites built using Django and deployed on Heroku and AWS S3.
+Template for websites built using Django and deployed on Heroku and AWS S3. This solution is great because Heroku has a [perpetual free tier](https://www.heroku.com/pricing) (albeit with numerous limitations) and AWS S3 is also free up to 5GB ([but only for the first year](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc)), meaning you can deploy your entire Django project at virtually zero cost.
+
+AWS S3 is necessary for handling user uploads and adding static files because Heroku has an [emphemeral file system](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem). This template project uses PostgreSQL as its database as it is highly scalable and integrates with Heroku very easily (and for [free](https://elements.heroku.com/addons/heroku-postgresql)!).
 
 ## Requirements
 
