@@ -1,4 +1,4 @@
-"""bchouse URL Configuration
+"""myapp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,25 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
-# from django.urls import path
-
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
 from myapp import views
 
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-# ]
-
 urlpatterns = [
     url(r"^$", views.home, name="home"),
-    url(r"^uploads/simple/$", views.simple_upload, name="simple_upload"),
     url(r"^uploads/form/$", views.model_form_upload, name="model_form_upload"),
     url(r"^admin/", admin.site.urls),
 ]
 
+# Uncomment the line below if you want your static files to only be visible when DEBUG is set to True
 # if settings.DEBUG:
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
